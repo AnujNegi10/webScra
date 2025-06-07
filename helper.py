@@ -6,6 +6,9 @@ from langchain_core.output_parsers import JsonOutputParser
 import logging
 import json
 import re
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -13,18 +16,18 @@ logger = logging.getLogger(__name__)
 class DBoperation:
     def __init__(self):
         self.connection = psycopg2.connect(
-            dbname="postgres",
-            user="postgres",
-            password="password",
-            host="localhost",
-            port="5433"
+            dbname=os.getenv("DBNAME"),
+            user=os.getenv("USER"),
+            password=os.getenv("PASSWORD"),
+            host=os.getenv("HOST"),
+            port=os.getenv("PORT")
         )
         self.cursor = self.connection.cursor()
         
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash",
             temperature=0.2,
-            api_key="AIzaSyBI39_86pDy3zi-wKPSR0kJ13hqLmb7K1c"
+            api_key=os.getenv("GOOGLE_API_KEY"),
         )
 
     def _get_all_ac_data(self):

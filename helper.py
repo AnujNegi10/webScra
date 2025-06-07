@@ -12,16 +12,10 @@ load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
+db_connection_string = os.getenv("DBCONNECTION")
 class DBoperation:
     def __init__(self):
-        self.connection = psycopg2.connect(
-            dbname=os.getenv("DBNAME"),
-            user=os.getenv("USER"),
-            password=os.getenv("PASSWORD"),
-            host=os.getenv("HOST"),
-            port=os.getenv("PORT")
-        )
+        self.connection = psycopg2.connect(db_connection_string)
         self.cursor = self.connection.cursor()
         
         self.llm = ChatGoogleGenerativeAI(

@@ -149,11 +149,11 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    # "id": item[0],
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -169,14 +169,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -190,14 +190,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -237,14 +237,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -258,14 +258,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -305,14 +305,15 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[0],
+                "desc": item[1],
+                "image": item[2],
+                "price": item[3],
+                
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -326,14 +327,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -373,14 +374,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -394,14 +395,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -441,14 +442,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -462,14 +463,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -509,14 +510,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -530,14 +531,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -577,14 +578,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -598,14 +599,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -645,14 +646,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -666,14 +667,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -713,14 +714,14 @@ class DBoperation:
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
+        print(res)
         resar = []
         for item in res:
             resdict = {
-                "id": item[0],
-                "name": item[1],
-                "desc": item[2],
-                "image": item[3],
-                "price": item[4]
+                "name": item[4],
+                "desc": item[0],
+                "image": item[1],
+                "price": item[2]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -734,14 +735,14 @@ class DBoperation:
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
+            print(res)
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[4],
+                    "desc": item[0],
+                    "image": item[1],
+                    "price": item[2]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -776,11 +777,10 @@ class DBoperation:
             ac_products = self.cursor.fetchall()
             for item in ac_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Air Conditioner"
                 }
                 all_products.append(resdict)
@@ -790,26 +790,11 @@ class DBoperation:
             tv_products = self.cursor.fetchall()
             for item in tv_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Television"
-                }
-                all_products.append(resdict)
-            
-            # Get all Phones
-            self.cursor.execute("SELECT * FROM phone")
-            phone_products = self.cursor.fetchall()
-            for item in phone_products:
-                resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
-                    "category": "Mobile Phone"
                 }
                 all_products.append(resdict)
             
@@ -818,11 +803,10 @@ class DBoperation:
             fridge_products = self.cursor.fetchall()
             for item in fridge_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Refrigerator"
                 }
                 all_products.append(resdict)
@@ -832,11 +816,10 @@ class DBoperation:
             laptop_products = self.cursor.fetchall()
             for item in laptop_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Laptop"
                 }
                 all_products.append(resdict)
@@ -846,11 +829,10 @@ class DBoperation:
             microwave_products = self.cursor.fetchall()
             for item in microwave_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Microwave"
                 }
                 all_products.append(resdict)
@@ -860,11 +842,10 @@ class DBoperation:
             smartwatch_products = self.cursor.fetchall()
             for item in smartwatch_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Smartwatch"
                 }
                 all_products.append(resdict)
@@ -874,11 +855,10 @@ class DBoperation:
             speaker_products = self.cursor.fetchall()
             for item in speaker_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Speaker"
                 }
                 all_products.append(resdict)
@@ -888,11 +868,10 @@ class DBoperation:
             vacuum_products = self.cursor.fetchall()
             for item in vacuum_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Vacuum Cleaner"
                 }
                 all_products.append(resdict)
@@ -902,11 +881,10 @@ class DBoperation:
             washing_products = self.cursor.fetchall()
             for item in washing_products:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4],
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
                     "category": "Washing Machine"
                 }
                 all_products.append(resdict)
@@ -1106,7 +1084,7 @@ class DBoperation:
             1. **Tool Call** – If the query is about products, use one of these tools:
             
             For All Products:
-            - All Products → use `"get_all_products"` (use this when user asks for all products or general product queries)
+            - All Products → use `"get_all_products"` (use this when user asks for all products or general all product queries)
             - Air Conditioners → use `"get_all_ac_data"`
             - Televisions → use `"get_all_tv_data"`
             - Mobile Phones → use `"get_all_phones_data"`

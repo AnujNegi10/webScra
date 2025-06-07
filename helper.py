@@ -171,13 +171,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_ac(self, model_name, brand):
@@ -238,13 +239,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_fridge(self, model_name, brand):
@@ -305,13 +307,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_laptop(self, model_name, brand):
@@ -372,13 +375,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_microwave(self, model_name, brand):
@@ -439,13 +443,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_smartwatch(self, model_name, brand):
@@ -506,13 +511,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_speaker(self, model_name, brand):
@@ -573,13 +579,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_tv(self, model_name, brand):
@@ -640,13 +647,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_vacuumcleaner(self, model_name, brand):
@@ -707,13 +715,14 @@ class DBoperation:
             return {"error": "No data found in the database."}
         resar = []
         for item in res:
-            redict = {}
-            redict["id"] = item[0]
-            redict["name"] = item[1]
-            redict["desc"] = item[2]
-            redict["image"] = item[3]
-            redict["price"] = item[4]
-            resar.append(redict)
+            resdict = {
+                "id": item[0],
+                "name": item[1],
+                "desc": item[2],
+                "image": item[3],
+                "price": item[4]
+            }
+            resar.append(resdict)
         return {"msg": "success", "data": resar}
 
     def _get_particular_model_washingmachine(self, model_name, brand):
@@ -757,11 +766,169 @@ class DBoperation:
             logger.error(f"Error parsing LLM response: {str(e)}")
             return None
 
+    def _get_all_products(self):
+        """Internal method to fetch all products from all tables."""
+        try:
+            all_products = []
+            
+            # Get all ACs
+            self.cursor.execute("SELECT * FROM ac")
+            ac_products = self.cursor.fetchall()
+            for item in ac_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Air Conditioner"
+                }
+                all_products.append(resdict)
+            
+            # Get all TVs
+            self.cursor.execute("SELECT * FROM tv")
+            tv_products = self.cursor.fetchall()
+            for item in tv_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Television"
+                }
+                all_products.append(resdict)
+            
+            # Get all Phones
+            self.cursor.execute("SELECT * FROM phone")
+            phone_products = self.cursor.fetchall()
+            for item in phone_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Mobile Phone"
+                }
+                all_products.append(resdict)
+            
+            # Get all Fridges
+            self.cursor.execute("SELECT * FROM fridge")
+            fridge_products = self.cursor.fetchall()
+            for item in fridge_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Refrigerator"
+                }
+                all_products.append(resdict)
+            
+            # Get all Laptops
+            self.cursor.execute("SELECT * FROM laptop")
+            laptop_products = self.cursor.fetchall()
+            for item in laptop_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Laptop"
+                }
+                all_products.append(resdict)
+            
+            # Get all Microwaves
+            self.cursor.execute("SELECT * FROM microwave")
+            microwave_products = self.cursor.fetchall()
+            for item in microwave_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Microwave"
+                }
+                all_products.append(resdict)
+            
+            # Get all Smartwatches
+            self.cursor.execute("SELECT * FROM smartwatch")
+            smartwatch_products = self.cursor.fetchall()
+            for item in smartwatch_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Smartwatch"
+                }
+                all_products.append(resdict)
+            
+            # Get all Speakers
+            self.cursor.execute("SELECT * FROM speaker")
+            speaker_products = self.cursor.fetchall()
+            for item in speaker_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Speaker"
+                }
+                all_products.append(resdict)
+            
+            # Get all Vacuum Cleaners
+            self.cursor.execute("SELECT * FROM vacuumcleaner")
+            vacuum_products = self.cursor.fetchall()
+            for item in vacuum_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Vacuum Cleaner"
+                }
+                all_products.append(resdict)
+            
+            # Get all Washing Machines
+            self.cursor.execute("SELECT * FROM washingmachine")
+            washing_products = self.cursor.fetchall()
+            for item in washing_products:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4],
+                    "category": "Washing Machine"
+                }
+                all_products.append(resdict)
+            
+            if not all_products:
+                return {"error": "No products found in the database."}
+            
+            return {"msg": "success", "data": all_products}
+        except Exception as e:
+            logger.error(f"Error in get_all_products: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
     def call_llm_tool_function_call(self, us_query: str):
         """Process user query and call the appropriate tool using Gemini."""
         logger.info(f"Processing user query: {us_query}")
         try:
             # Create tool functions that have access to self
+            @tool
+            def get_all_products():
+                """Fetch all products from all categories in the database."""
+                return self._get_all_products()
+            
             @tool
             def get_all_ac_data():
                 """Fetch all air conditioner products from the database."""
@@ -914,7 +1081,7 @@ class DBoperation:
 
             # Define available tools
             tools = [
-                get_all_ac_data, get_all_tv_data, get_all_phones_data, get_all_fridge_data,
+                get_all_products, get_all_ac_data, get_all_tv_data, get_all_phones_data, get_all_fridge_data,
                 get_all_laptop_data, get_all_microwave_data, get_all_smartwatch_data,
                 get_all_speaker_data, get_all_vacuumcleaner_data, get_all_washingmachine_data,
                 get_particular_phone, get_particular_model, get_particular_ac,
@@ -939,6 +1106,7 @@ class DBoperation:
             1. **Tool Call** – If the query is about products, use one of these tools:
             
             For All Products:
+            - All Products → use `"get_all_products"` (use this when user asks for all products or general product queries)
             - Air Conditioners → use `"get_all_ac_data"`
             - Televisions → use `"get_all_tv_data"`
             - Mobile Phones → use `"get_all_phones_data"`

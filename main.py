@@ -62,6 +62,13 @@ async def send_query(request: QueryRequest):
         return result
     return result
 
+@app.get("/get_products")
+async def send_query():
+    
+    result = obj.get_all_products()
+    if "msg" in result:
+        return result
+    return result
 
 if __name__ == "__main__":
     import uvicorn

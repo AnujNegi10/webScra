@@ -725,6 +725,49 @@ class DBoperation:
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
+    
+    def _get_all_products(self):
+        """Internal method to fetch all products from all tables."""
+        try:
+            self.cursor.execute("""
+                SELECT name, description, image, price FROM ac
+                UNION ALL
+                SELECT name, description, image, price FROM fridge
+                UNION ALL
+                SELECT name, description, image, price FROM laptop
+                UNION ALL
+                SELECT name, description, image, price FROM microwave
+                UNION ALL
+                SELECT name, description, image, price FROM phone
+                UNION ALL
+                SELECT name, description, image, price FROM smartwatch
+                UNION ALL
+                SELECT name, description, image, price FROM speaker
+                UNION ALL
+                SELECT name, description, image, price  FROM tv
+                UNION ALL
+                SELECT name, description, image, price FROM vacuumcleaner
+                UNION ALL
+                SELECT name, description, image, price  FROM washingmachine
+            """)
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No products found in the database."}
+            print(res)
+            resar = []
+            for item in res:
+                resdict = {
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3],
+                    "category": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_all_products: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
 
     def _get_particular_model_washingmachine(self, model_name, brand):
         model_name = model_name.lower()
@@ -1220,6 +1263,8 @@ class DBoperation:
     def get_all_tv_data(self):
         """Public method for direct API calls."""
         return self._get_all_tv_data()
+    def get_all_products(self):
+        return self._get_all_products()
     
     def get_all_phones_data(self):
         """Public method for direct API calls."""

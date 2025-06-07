@@ -17,7 +17,7 @@ class DBoperation:
     def __init__(self):
         self.connection = psycopg2.connect(db_connection_string)
         self.cursor = self.connection.cursor()
-        
+        self.connection.autocommit = True
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash",
             temperature=0.2,
@@ -74,6 +74,7 @@ class DBoperation:
             self.cursor.execute("SELECT * FROM phone")
             res = self.cursor.fetchall()
             if not res:
+                self.connection.commit()
                 return {"error": "No data found in the database."}
             resar = []
             for item in res:
@@ -85,8 +86,10 @@ class DBoperation:
                     "price": item[4]
                 }
                 resar.append(resdict)
+            self.connection.commit()
             return {"msg": "success", "data": resar}
         except Exception as e:
+            self.connection.commit()
             logger.error(f"Error in get_all_phones_data: {str(e)}")
             return {"error": f"Database error: {str(e)}"}
     
@@ -241,6 +244,7 @@ class DBoperation:
                         'get_particular_phone': get_particular_phone,
                         'get_particular_model': get_particular_model
                     }
+                    
                     
                     # Get the appropriate tool
                     selected_tool = tool_map.get(tool_name)

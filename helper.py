@@ -96,7 +96,7 @@ class DBoperation:
     
     def _get_particular_phone(self,brand):
         brand= brand.lower()
-        self.cursor.execute("SELECT * FROM phone WHERE category = %s", (brand,))
+        self.cursor.execute("SELECT * FROM phone WHERE category ILIKE %s", (f"%{brand}%",))
         res = self.cursor.fetchall()
         if not res:
             return {"error": "No data found in the database."}
@@ -116,7 +116,7 @@ class DBoperation:
         brand  = brand.lower()
         """Internal method to fetch a specific model from the database."""
         try:
-            self.cursor.execute("SELECT * FROM phone WHERE category=%s and name = %s", (brand,model_name,))
+            self.cursor.execute("SELECT * FROM phone WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
             res = self.cursor.fetchall()
             if not res:
                 return {"error": "No data found for the specified model."}
@@ -133,6 +133,611 @@ class DBoperation:
             return {"msg": "success", "data": resar}
         except Exception as e:
             logger.error(f"Error in get_particular_model: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+        
+    
+
+    # AC Functions
+    def _get_all_ac_data(self):
+        """Internal method to fetch all ac products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM ac")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_ac_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_ac(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM ac WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_ac(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific ac model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM ac WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_ac: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Fridge Functions
+    def _get_all_fridge_data(self):
+        """Internal method to fetch all fridge products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM fridge")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_fridge_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_fridge(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM fridge WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_fridge(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific fridge model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM fridge WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_fridge: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Laptop Functions
+    def _get_all_laptop_data(self):
+        """Internal method to fetch all laptop products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM laptop")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_laptop_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_laptop(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM laptop WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_laptop(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific laptop model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM laptop WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_laptop: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Microwave Functions
+    def _get_all_microwave_data(self):
+        """Internal method to fetch all microwave products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM microwave")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_microwave_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_microwave(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM microwave WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_microwave(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific microwave model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM microwave WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_microwave: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Smartwatch Functions
+    def _get_all_smartwatch_data(self):
+        """Internal method to fetch all smartwatch products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM smartwatch")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_smartwatch_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_smartwatch(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM smartwatch WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_smartwatch(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific smartwatch model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM smartwatch WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_smartwatch: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Speaker Functions
+    def _get_all_speaker_data(self):
+        """Internal method to fetch all speaker products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM speaker")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_speaker_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_speaker(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM speaker WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_speaker(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific speaker model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM speaker WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_speaker: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # TV Functions
+    def _get_all_tv_data(self):
+        """Internal method to fetch all tv products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM tv")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_tv_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_tv(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM tv WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_tv(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific tv model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM tv WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_tv: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Vacuum Cleaner Functions
+    def _get_all_vacuumcleaner_data(self):
+        """Internal method to fetch all vacuumcleaner products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM vacuumcleaner")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_vacuumcleaner_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_vacuumcleaner(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM vacuumcleaner WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_vacuumcleaner(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific vacuumcleaner model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM vacuumcleaner WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_vacuumcleaner: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    # Washing Machine Functions
+    def _get_all_washingmachine_data(self):
+        """Internal method to fetch all washingmachine products from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM washingmachine")
+            res = self.cursor.fetchall()
+            if not res:
+                self.connection.commit()
+                return {"error": "No data found in the database."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            self.connection.commit()
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            self.connection.commit()
+            logger.error(f"Error in get_all_washingmachine_data: {str(e)}")
+            return {"error": f"Database error: {str(e)}"}
+
+    def _get_particular_washingmachine(self, brand):
+        brand = brand.lower()
+        self.cursor.execute("SELECT * FROM washingmachine WHERE category ILIKE %s", (f"%{brand}%",))
+        res = self.cursor.fetchall()
+        if not res:
+            return {"error": "No data found in the database."}
+        resar = []
+        for item in res:
+            redict = {}
+            redict["id"] = item[0]
+            redict["name"] = item[1]
+            redict["desc"] = item[2]
+            redict["image"] = item[3]
+            redict["price"] = item[4]
+            resar.append(redict)
+        return {"msg": "success", "data": resar}
+
+    def _get_particular_model_washingmachine(self, model_name, brand):
+        model_name = model_name.lower()
+        brand = brand.lower()
+        """Internal method to fetch a specific washingmachine model from the database."""
+        try:
+            self.cursor.execute("SELECT * FROM washingmachine WHERE category ILIKE %s and name ILIKE %s", (f"%{brand}%", f"%{model_name}%",))
+            res = self.cursor.fetchall()
+            if not res:
+                return {"error": "No data found for the specified model."}
+            resar = []
+            for item in res:
+                resdict = {
+                    "id": item[0],
+                    "name": item[1],
+                    "desc": item[2],
+                    "image": item[3],
+                    "price": item[4]
+                }
+                resar.append(resdict)
+            return {"msg": "success", "data": resar}
+        except Exception as e:
+            logger.error(f"Error in get_particular_model_washingmachine: {str(e)}")
             return {"error": f"Database error: {str(e)}"}
     
     def parse_llm_response(self, response_content):
@@ -173,6 +778,41 @@ class DBoperation:
                 return self._get_all_phones_data()
             
             @tool
+            def get_all_fridge_data():
+                """Fetch all fridge products from the database."""
+                return self._get_all_fridge_data()
+            
+            @tool
+            def get_all_laptop_data():
+                """Fetch all laptop products from the database."""
+                return self._get_all_laptop_data()
+            
+            @tool
+            def get_all_microwave_data():
+                """Fetch all microwave products from the database."""
+                return self._get_all_microwave_data()
+            
+            @tool
+            def get_all_smartwatch_data():
+                """Fetch all smartwatch products from the database."""
+                return self._get_all_smartwatch_data()
+            
+            @tool
+            def get_all_speaker_data():
+                """Fetch all speaker products from the database."""
+                return self._get_all_speaker_data()
+            
+            @tool
+            def get_all_vacuumcleaner_data():
+                """Fetch all vacuum cleaner products from the database."""
+                return self._get_all_vacuumcleaner_data()
+            
+            @tool
+            def get_all_washingmachine_data():
+                """Fetch all washing machine products from the database."""
+                return self._get_all_washingmachine_data()
+            
+            @tool
             def get_particular_phone(brand: str):
                 """Fetch phones of a specific brand (e.g., 'samsung', 'iphone')."""
                 return self._get_particular_phone(brand)
@@ -181,13 +821,115 @@ class DBoperation:
             def get_particular_model(model_name: str, brand: str):
                 """Fetch a specific phone model from a brand (e.g., 'samsung galaxy s23', 'samsung')."""
                 return self._get_particular_model(model_name, brand)
+            
+            @tool
+            def get_particular_ac(brand: str):
+                """Fetch ACs of a specific brand."""
+                return self._get_particular_ac(brand)
+            
+            @tool
+            def get_particular_model_ac(model_name: str, brand: str):
+                """Fetch a specific AC model from a brand."""
+                return self._get_particular_model_ac(model_name, brand)
+            
+            @tool
+            def get_particular_fridge(brand: str):
+                """Fetch fridges of a specific brand."""
+                return self._get_particular_fridge(brand)
+            
+            @tool
+            def get_particular_model_fridge(model_name: str, brand: str):
+                """Fetch a specific fridge model from a brand."""
+                return self._get_particular_model_fridge(model_name, brand)
+            
+            @tool
+            def get_particular_laptop(brand: str):
+                """Fetch laptops of a specific brand."""
+                return self._get_particular_laptop(brand)
+            
+            @tool
+            def get_particular_model_laptop(model_name: str, brand: str):
+                """Fetch a specific laptop model from a brand."""
+                return self._get_particular_model_laptop(model_name, brand)
+            
+            @tool
+            def get_particular_microwave(brand: str):
+                """Fetch microwaves of a specific brand."""
+                return self._get_particular_microwave(brand)
+            
+            @tool
+            def get_particular_model_microwave(model_name: str, brand: str):
+                """Fetch a specific microwave model from a brand."""
+                return self._get_particular_model_microwave(model_name, brand)
+            
+            @tool
+            def get_particular_smartwatch(brand: str):
+                """Fetch smartwatches of a specific brand."""
+                return self._get_particular_smartwatch(brand)
+            
+            @tool
+            def get_particular_model_smartwatch(model_name: str, brand: str):
+                """Fetch a specific smartwatch model from a brand."""
+                return self._get_particular_model_smartwatch(model_name, brand)
+            
+            @tool
+            def get_particular_speaker(brand: str):
+                """Fetch speakers of a specific brand."""
+                return self._get_particular_speaker(brand)
+            
+            @tool
+            def get_particular_model_speaker(model_name: str, brand: str):
+                """Fetch a specific speaker model from a brand."""
+                return self._get_particular_model_speaker(model_name, brand)
+            
+            @tool
+            def get_particular_tv(brand: str):
+                """Fetch TVs of a specific brand."""
+                return self._get_particular_tv(brand)
+            
+            @tool
+            def get_particular_model_tv(model_name: str, brand: str):
+                """Fetch a specific TV model from a brand."""
+                return self._get_particular_model_tv(model_name, brand)
+            
+            @tool
+            def get_particular_vacuumcleaner(brand: str):
+                """Fetch vacuum cleaners of a specific brand."""
+                return self._get_particular_vacuumcleaner(brand)
+            
+            @tool
+            def get_particular_model_vacuumcleaner(model_name: str, brand: str):
+                """Fetch a specific vacuum cleaner model from a brand."""
+                return self._get_particular_model_vacuumcleaner(model_name, brand)
+            
+            @tool
+            def get_particular_washingmachine(brand: str):
+                """Fetch washing machines of a specific brand."""
+                return self._get_particular_washingmachine(brand)
+            
+            @tool
+            def get_particular_model_washingmachine(model_name: str, brand: str):
+                """Fetch a specific washing machine model from a brand."""
+                return self._get_particular_model_washingmachine(model_name, brand)
+
             # Define available tools
-            tools = [get_all_ac_data, get_all_tv_data, get_all_phones_data,get_particular_phone,get_particular_model]
+            tools = [
+                get_all_ac_data, get_all_tv_data, get_all_phones_data, get_all_fridge_data,
+                get_all_laptop_data, get_all_microwave_data, get_all_smartwatch_data,
+                get_all_speaker_data, get_all_vacuumcleaner_data, get_all_washingmachine_data,
+                get_particular_phone, get_particular_model, get_particular_ac,
+                get_particular_model_ac, get_particular_fridge, get_particular_model_fridge,
+                get_particular_laptop, get_particular_model_laptop, get_particular_microwave,
+                get_particular_model_microwave, get_particular_smartwatch,
+                get_particular_model_smartwatch, get_particular_speaker,
+                get_particular_model_speaker, get_particular_tv, get_particular_model_tv,
+                get_particular_vacuumcleaner, get_particular_model_vacuumcleaner,
+                get_particular_washingmachine, get_particular_model_washingmachine
+            ]
             
             # Bind tools to the LLM
             llm_with_tools = self.llm.bind_tools(tools)
             
-            print("2")
             # Create the prompt
             prompt = f"""
             You are an assistant for an e-commerce platform.
@@ -195,19 +937,50 @@ class DBoperation:
             You must respond to the user's query in one of two ways:
 
             1. **Tool Call** – If the query is about products, use one of these tools:
+            
+            For All Products:
             - Air Conditioners → use `"get_all_ac_data"`
             - Televisions → use `"get_all_tv_data"`
-            - All Mobile Phones → use `"get_all_phones_data"`
-            - Specific Brand Phones (e.g., "show me all iphones" or "show samsung phones" or "simply the brand name is given") → use `"get_particular_phone"` with brand parameter
-            - Specific Phone Model (e.g., "show me samsung galaxy s23" or "i want" or "do you have" or "simply the model name is given") → use `"get_particular_model"` with model_name and brand parameters
+            - Mobile Phones → use `"get_all_phones_data"`
+            - Fridges → use `"get_all_fridge_data"`
+            - Laptops → use `"get_all_laptop_data"`
+            - Microwaves → use `"get_all_microwave_data"`
+            - Smartwatches → use `"get_all_smartwatch_data"`
+            - Speakers → use `"get_all_speaker_data"`
+            - Vacuum Cleaners → use `"get_all_vacuumcleaner_data"`
+            - Washing Machines → use `"get_all_washingmachine_data"`
+
+            For Specific Brand Products:
+            - Phones (e.g., "show me all iphones" or "show samsung phones" or "simply the brand name is given") → use `"get_particular_phone"` with brand parameter
+            - ACs (e.g., "show me all LG ACs" or "show Voltas ACs") → use `"get_particular_ac"` with brand parameter
+            - Fridges (e.g., "show me all Samsung fridges" or "show LG fridges") → use `"get_particular_fridge"` with brand parameter
+            - Laptops (e.g., "show me all Dell laptops" or "show HP laptops") → use `"get_particular_laptop"` with brand parameter
+            - Microwaves (e.g., "show me all IFB microwaves" or "show Samsung microwaves") → use `"get_particular_microwave"` with brand parameter
+            - Smartwatches (e.g., "show me all Apple smartwatches" or "show Fitbit smartwatches") → use `"get_particular_smartwatch"` with brand parameter
+            - Speakers (e.g., "show me all JBL speakers" or "show Sony speakers") → use `"get_particular_speaker"` with brand parameter
+            - TVs (e.g., "show me all Samsung TVs" or "show Sony TVs") → use `"get_particular_tv"` with brand parameter
+            - Vacuum Cleaners (e.g., "show me all Dyson vacuum cleaners" or "show Philips vacuum cleaners") → use `"get_particular_vacuumcleaner"` with brand parameter
+            - Washing Machines (e.g., "show me all LG washing machines" or "show Samsung washing machines") → use `"get_particular_washingmachine"` with brand parameter
+
+            For Specific Models:
+            - Phones (e.g., "show me samsung galaxy s23" or "i want iphone 15") → use `"get_particular_model"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique phone model identifier (e.g., 'galaxy s23', 'iphone 15'). Do NOT include the product type like 'phone' in 'model_name'.**
+            - ACs (e.g., "show me LG DUALCOOL" or "i want Voltas 1.5 Ton AC") → use `"get_particular_model_ac"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique AC model identifier (e.g., 'DUALCOOL', '1.5 Ton'). Do NOT include the product type like 'AC' in 'model_name'.**
+            - Fridges (e.g., "show me Samsung RT34T5538UT" or "i want LG GL-D201ASEY") → use `"get_particular_model_fridge"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique fridge model identifier (e.g., 'RT34T5538UT', 'GL-D201ASEY'). Do NOT include the product type like 'fridge' in 'model_name'.**
+            - Laptops (e.g., "show me Dell XPS 13" or "i want HP Spectre x360") → use `"get_particular_model_laptop"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique laptop model identifier (e.g., 'XPS 13', 'Spectre x360'). Do NOT include the product type like 'laptop' in 'model_name'.**
+            - Microwaves (e.g., "show me IFB 30L Convection" or "i want Samsung 28L Convection") → use `"get_particular_model_microwave"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique microwave model identifier (e.g., '30L Convection', '28L Convection', '23L Solo'). Do NOT include the product type like 'microwave' in 'model_name'.**
+            - Smartwatches (e.g., "show me Apple Watch Series 9" or "i want Fitbit Versa 4") → use `"get_particular_model_smartwatch"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique smartwatch model identifier (e.g., 'Watch Series 9', 'Versa 4'). Do NOT include the product type like 'smartwatch' in 'model_name'.**
+            - Speakers (e.g., "show me JBL Flip 6" or "i want Sony SRS-XB13") → use `"get_particular_model_speaker"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique speaker model identifier (e.g., 'Flip 6', 'SRS-XB13'). Do NOT include the product type like 'speaker' in 'model_name'.**
+            - TVs (e.g., "show me Samsung QN65QN90C" or "i want Sony BRAVIA XR A80J") → use `"get_particular_model_tv"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique TV model identifier (e.g., 'QN65QN90C', 'BRAVIA XR A80J'). Do NOT include the product type like 'TV' in 'model_name'.**
+            - Vacuum Cleaners (e.g., "show me Dyson V15 Detect" or "i want Philips SpeedPro Max") → use `"get_particular_model_vacuumcleaner"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique vacuum cleaner model identifier (e.g., 'V15 Detect', 'SpeedPro Max'). Do NOT include the product type like 'vacuum cleaner' in 'model_name'.**
+            - Washing Machines (e.g., "show me LG Front Load 7kg" or "i want Samsung EcoBubble 7kg") → use `"get_particular_model_washingmachine"` with model_name and brand parameters. **Important: For 'model_name', extract only the unique washing machine model identifier (e.g., 'Front Load 7kg', 'EcoBubble 7kg'). Do NOT include the product type like 'washing machine' in 'model_name'.**
 
             Respond in this format (and **only if applicable**):
             {{
             "name": "tool_name",
             "args": {{
-                // Include parameters only for get_particular_phone and get_particular_model
-                // For get_particular_phone: "brand": "brand_name"
-                // For get_particular_model: "model_name": "model_name", "brand": "brand_name"
+                // Include parameters only for specific brand/model queries
+                // For brand queries: "brand": "brand_name"
+                // For model queries: "model_name": "model_name", "brand": "brand_name"
             }}
             }}
 
@@ -219,14 +992,11 @@ class DBoperation:
 
             User query: "{us_query}"
             """
-
             
-            print("3")
             # Send the query to the LLM
             messages = [HumanMessage(content=prompt)]
             response = llm_with_tools.invoke(messages)
             
-            print("4")
             # Debug: Print the raw response
             print("LLM Response:", response)
             
@@ -241,10 +1011,34 @@ class DBoperation:
                         'get_all_ac_data': get_all_ac_data,
                         'get_all_tv_data': get_all_tv_data,
                         'get_all_phones_data': get_all_phones_data,
+                        'get_all_fridge_data': get_all_fridge_data,
+                        'get_all_laptop_data': get_all_laptop_data,
+                        'get_all_microwave_data': get_all_microwave_data,
+                        'get_all_smartwatch_data': get_all_smartwatch_data,
+                        'get_all_speaker_data': get_all_speaker_data,
+                        'get_all_vacuumcleaner_data': get_all_vacuumcleaner_data,
+                        'get_all_washingmachine_data': get_all_washingmachine_data,
                         'get_particular_phone': get_particular_phone,
-                        'get_particular_model': get_particular_model
+                        'get_particular_model': get_particular_model,
+                        'get_particular_ac': get_particular_ac,
+                        'get_particular_model_ac': get_particular_model_ac,
+                        'get_particular_fridge': get_particular_fridge,
+                        'get_particular_model_fridge': get_particular_model_fridge,
+                        'get_particular_laptop': get_particular_laptop,
+                        'get_particular_model_laptop': get_particular_model_laptop,
+                        'get_particular_microwave': get_particular_microwave,
+                        'get_particular_model_microwave': get_particular_model_microwave,
+                        'get_particular_smartwatch': get_particular_smartwatch,
+                        'get_particular_model_smartwatch': get_particular_model_smartwatch,
+                        'get_particular_speaker': get_particular_speaker,
+                        'get_particular_model_speaker': get_particular_model_speaker,
+                        'get_particular_tv': get_particular_tv,
+                        'get_particular_model_tv': get_particular_model_tv,
+                        'get_particular_vacuumcleaner': get_particular_vacuumcleaner,
+                        'get_particular_model_vacuumcleaner': get_particular_model_vacuumcleaner,
+                        'get_particular_washingmachine': get_particular_washingmachine,
+                        'get_particular_model_washingmachine': get_particular_model_washingmachine
                     }
-                    
                     
                     # Get the appropriate tool
                     selected_tool = tool_map.get(tool_name)
@@ -292,12 +1086,13 @@ class DBoperation:
 
 # if __name__ == "__main__":
 #     db_op = DBoperation()
-    # try:
-        # Example usage
+#     try:
+#         # Example usage
         
-        # print(db_op.get_particular_phone("samsung"))
-        # print(db_op._get_particular_model("samsung galaxy s23","samsung"))
+#         # print(db_op.get_particular_phone("samsung"))
+#         # print(db_op._get_particular_model("samsung galaxy s23","samsung"))
+#         # print(db_op._get_all_washingmachine_data())
     
         
-    # finally:
-    #     db_op.close()
+#     finally:
+#         db_op.close()

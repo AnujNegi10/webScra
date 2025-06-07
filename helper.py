@@ -34,11 +34,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -56,11 +55,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -150,10 +148,10 @@ class DBoperation:
             for item in res:
                 resdict = {
                     # "id": item[0],
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -173,10 +171,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -194,10 +192,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -217,11 +215,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -241,10 +238,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -262,10 +259,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -285,11 +282,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -309,11 +305,11 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[0],
-                "desc": item[1],
-                "image": item[2],
-                "price": item[3],
-                
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
+
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -331,10 +327,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -354,11 +350,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -378,10 +373,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -399,10 +394,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -422,11 +417,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -446,10 +440,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -467,10 +461,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -490,11 +484,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -514,10 +507,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -535,10 +528,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -558,11 +551,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -582,10 +574,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -603,10 +595,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -626,11 +618,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -650,10 +641,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -671,10 +662,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
@@ -694,11 +685,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "id": item[0],
-                    "name": item[1],
-                    "desc": item[2],
-                    "image": item[3],
-                    "price": item[4]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             self.connection.commit()
@@ -718,10 +708,10 @@ class DBoperation:
         resar = []
         for item in res:
             resdict = {
-                "name": item[4],
-                "desc": item[0],
-                "image": item[1],
-                "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
             }
             resar.append(resdict)
         return {"msg": "success", "data": resar}
@@ -782,10 +772,10 @@ class DBoperation:
             resar = []
             for item in res:
                 resdict = {
-                    "name": item[4],
-                    "desc": item[0],
-                    "image": item[1],
-                    "price": item[2]
+                    "name": item[0],
+                    "desc": item[1],
+                    "image": item[2],
+                    "price": item[3]
                 }
                 resar.append(resdict)
             return {"msg": "success", "data": resar}
